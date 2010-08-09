@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import arkpy
+
+if __name__ == '__main__':
+    import sys
+    import optparse
+    parser = optparse.OptionParser(usage="Usage: %prog <ark>")
+    
+    (options, args) = parser.parse_args()
+    if len(args) != 1:
+        parser.print_help()
+        sys.exit(1)
+
+    ark = args[0]
+
+    print "%s is valid? %s" % (ark, arkpy.validate(ark))

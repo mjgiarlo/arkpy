@@ -1,0 +1,19 @@
+h1. arkpy
+
+Simple tools built around the "Archival Resource Key":https://wiki.ucop.edu/display/Curation/ARK specification, allowing minting and validating of ARKs via code and the command-line.
+
+h2. Code
+
+<pre>
+  """ python """
+  import arkpy
+  ark = arkpy.mint('42409', 'ededk', 'mycoll-')
+  if not arkpy.validate(ark):
+      print "Ruh roh"
+</pre>
+
+h2. Command-line usage
+
+<pre>
+  $ arkpy --authority=42409 --template='ddddddddd'
+</pre>
