@@ -18,6 +18,6 @@ h2. Command-line usage
   $ arkmint --authority=42409 --template='eeddeeddk' --prefix='digcoll-'
   42409/digcoll-23496q15t
 
-  $ ./arkvalidate 42409/digcoll-23496q15t
+  $ arkvalidate 42409/digcoll-23496q15t
   42409/digcoll-23496q15t is valid? True
 </pre>
