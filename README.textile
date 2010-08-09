@@ -15,9 +15,9 @@ h2. Code
 h2. Command-line usage
 
 <pre>
-  $ arkmint --authority=42409 --template='eeddeeddk' --prefix='digcoll-'
+  $ bin/arkmint --authority=42409 --template='eeddeeddk' --prefix='digcoll-'
   42409/digcoll-23496q15t
 
-  $ arkvalidate 42409/digcoll-23496q15t
+  $ bin/arkvalidate 42409/digcoll-23496q15t
   42409/digcoll-23496q15t is valid? True
 </pre>
