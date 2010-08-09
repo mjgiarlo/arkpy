@@ -14,21 +14,29 @@ def mint(authority, template, prefix=''):
     #   e is an xdigit: 0123456789bcdfghjkmnpqrstvwxz
     #   d is a digit:   0123456789
     #   k is checkchar: special xdigit
+
+    # initialize an array to hold the various parts of an ARK
+    # to be joined later
+    ark_parts = []
+
+    if authority:
+        ark_parts.append(authority)
+        ark_parts.append('/')
+
+    if prefix:
+        ark_parts.append(prefix)
     
-    # first generate a name based on given template
-    name = _generate_name(template)
+    # generate a name based on given template
+    ark_parts.append(_generate_name(template))
 
-    # then prepend the optional prefix (for additional namespacing)
-    name = prefix + name
+    # join the ARK from its parts
+    ark = ''.join(ark_parts)
 
-    # then prepend authority.number and the '/' character e.g., "11111/id"
-    ark = "%s/%s" % (authority, name)
-
-    # then generate a check character, if specified in template
+    # generate a check character, if specified in template
     if template[-1] == 'k':
         ark += _generate_check(ark)
 
-    # return identifier w/ check char to caller
+    # return identifier
     return ark
 
 def _generate_name(template):
