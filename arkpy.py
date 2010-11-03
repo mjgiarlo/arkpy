@@ -44,7 +44,10 @@ def _generate_name(template):
       for char in list(template):
           if char not in ['d', 'e']:
               continue
-          digit_array = xdigits if char == 'e' else digits
+			 if char == 'e':
+          	digit_array = xdigits 
+			 else: 
+			 	digit_array = digits
           name += random.choice(digit_array)
       return name
 
