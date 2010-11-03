@@ -42,13 +42,13 @@ def mint(authority, template, prefix=''):
 def _generate_name(template):
       name = ''
       for char in list(template):
-          if char not in ['d', 'e']:
-              continue
-			 if char == 'e':
-          	digit_array = xdigits 
-			 else: 
-			 	digit_array = digits
-          name += random.choice(digit_array)
+			if char not in ['d', 'e']:
+				continue
+			if char == 'e':
+				digit_array = xdigits 
+			else: 
+				digit_array = digits
+			name += random.choice(digit_array)
       return name
 
 def _generate_check(ark):
