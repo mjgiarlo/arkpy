@@ -18,7 +18,7 @@ def mint(authority, template, prefix=''):
     # initialize an array to hold the various parts of an ARK
     # to be joined later
     ark_parts = []
-
+    
     if authority:
         ark_parts.append(authority)
         ark_parts.append('/')
@@ -40,16 +40,16 @@ def mint(authority, template, prefix=''):
     return ark
 
 def _generate_name(template):
-      name = ''
-      for char in list(template):
-			if char not in ['d', 'e']:
-				continue
-			if char == 'e':
-				digit_array = xdigits 
-			else: 
-				digit_array = digits
-			name += random.choice(digit_array)
-      return name
+    name = ''
+    for char in list(template):
+        if char == 'e':
+            digit_array = xdigits 
+        elif char == 'd': 
+            digit_array = digits
+        else:
+            continue
+        name += random.choice(digit_array)
+    return name
 
 def _generate_check(ark):
     sum = 0
