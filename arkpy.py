@@ -18,7 +18,7 @@ def mint(authority, template, prefix=''):
     # initialize an array to hold the various parts of an ARK
     # to be joined later
     ark_parts = []
-    
+
     if authority:
         ark_parts.append(authority)
         ark_parts.append('/')
