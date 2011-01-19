@@ -6,11 +6,11 @@ from setuptools import setup, find_packages
 
 setup(
   	name = 'arkpy',
-	version = '0.1',
-	description = "a tool for working with Namaste directory description tags",
-	author = "Daniel Coughlin",
-	author_email = "dan.coughlin@gmail.com",
-	url = "http://github.com/MaxFisher/arkpy",
+	version = '0.2',
+	description = "Simple tools built around the Archival Resource Key specification, allowing minting and validating of ARKs via code and the command-line.",
+	author = "Michael J. Giarlo",
+	author_email = "leftwing@alumni.rutgers.edu",
+	url = "http://github.com/mjgiarlo/arkpy",
 	py_modules = ['arkpy', 'ez_setup'],
 	test_suite = '',
 	scripts = ['bin/arkmint', 'bin/arkvalidate']
