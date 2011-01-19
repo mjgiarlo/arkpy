@@ -5,11 +5,10 @@ digits = [str(i) for i in range(0, 10)]
 xdigits = digits + ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'm', 'n',
                     'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z']
 
-def mint(authority, template, prefix=''):
+def mint(authority, template, prefix='', bare=False):
     """ mint an ARK within an authority according to a template
     """
     # Penn State's ARK authority number is 42409
-
     # random template: eeddeeddk
     #   e is an xdigit: 0123456789bcdfghjkmnpqrstvwxz
     #   d is a digit:   0123456789
@@ -19,9 +18,11 @@ def mint(authority, template, prefix=''):
     # to be joined later
     ark_parts = []
 
-    if authority:
-        ark_parts.append(authority)
-        ark_parts.append('/')
+    if not bare:
+        ark_parts.append('ark:/')
+
+    ark_parts.append(authority)
+    ark_parts.append('/')
 
     if prefix:
         ark_parts.append(prefix)
@@ -43,12 +44,11 @@ def _generate_name(template):
     name = ''
     for char in list(template):
         if char == 'e':
-            digit_array = xdigits 
+            name += random.choice(xdigits)
         elif char == 'd': 
-            digit_array = digits
+            name += random.choice(digits)
         else:
             continue
-        name += random.choice(digit_array)
     return name
 
 def _generate_check(ark):
