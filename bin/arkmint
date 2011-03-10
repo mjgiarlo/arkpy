@@ -8,7 +8,7 @@ if __name__ == '__main__':
     parser = optparse.OptionParser(usage="Usage: %prog [options]")
     parser.add_option('--authority', dest='authority',
                       help='Name Assigning Authority Number',
-                      default='')
+                      default='13030')
     parser.add_option('--template', dest='template',
                       help='''identifier template: e is an xdigit:
                       0123456789bcdfghjkmnpqrstvwxz; d is a digit:
@@ -17,10 +17,12 @@ if __name__ == '__main__':
     parser.add_option('--prefix', dest='prefix',
                       help='Identifier prefix',
                       default='')
-    
+    parser.add_option('--bare', dest='bare',
+                      action='store_true')
     (options, args) = parser.parse_args()
     if len(args) != 0:
         parser.print_help()
         sys.exit(1)
 
-    print arkpy.mint(options.authority, options.template, options.prefix)
+    print arkpy.mint(options.authority, options.template,
+                     options.prefix, options.bare)

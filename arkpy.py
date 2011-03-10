@@ -5,7 +5,7 @@ digits = [str(i) for i in range(0, 10)]
 xdigits = digits + ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'm', 'n',
                     'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z']
 
-def mint(authority, template, prefix='', bare=False):
+def mint(authority, template, prefix='', bare=True):
     """ mint an ARK within an authority according to a template
     """
     # Penn State's ARK authority number is 42409
